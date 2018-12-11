@@ -1,3 +1,4 @@
-# Yattecast
+forked from [r7kamura/yattecast](https://github.com/r7kamura/yattecast)
 
-https://r7kamura.github.io/yattecast/
+- amp
+- google podcast
