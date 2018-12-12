@@ -2,6 +2,23 @@
 <html ⚡ lang={{ site.language }}>
   {% include head.html %}
   <body>
+    {% if site.google_analytics %}
+      <amp-analytics type="googleanalytics" id="analytics1">
+        <script type="application/json">
+          {
+            "vars": {
+              "account": "{{ site.google_analytics }}"
+            },
+            "triggers": {
+              "trackPageview": {
+                "on": "visible",
+                "request": "pageview"
+              }
+            }
+          }
+        </script>
+      </amp-analytics>
+    {% endif %}
     {% include header.html %}
     <main class="main">
       {{ content }}
