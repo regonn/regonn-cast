@@ -17,6 +17,42 @@
   <meta property="og:site_name" content="{{ site.title }}" />
   <meta property="og:type" content="blog" />
   <meta property="og:url" content="{{ site.github.url }}{{ page.url }}" />
+
+  <script type="application/ld+json">
+    {% if page.title %}
+      {
+        "@context": "http://schema.org",
+        "@type": "TechArticle",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{ site.github.url }}{{ page.url }}"
+        },
+        "headline": "{{ page.title }}",
+        "image": [
+          "{{ site.github.url }}/images/logo.jpg"
+        ],
+        "datePublished": "{{ page.date | date_to_xmlschema }}",
+        "author": {
+          "@type": "Person",
+          "name": "{{ site.author }}"
+        },
+        "description": "{{ page.desc }}",
+        "url": "{{ site.url }}{{ page.url }}"
+      }
+    {% else %}
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site.title }}",
+        "image": [
+          "{{ site.github.url }}/images/logo.jpg"
+        ],
+        "url": "{{ site.url }}",
+        "description": "{{ site.description }}"
+      }
+    {% endif %}
+  </script>
+
   <script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
   <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 
